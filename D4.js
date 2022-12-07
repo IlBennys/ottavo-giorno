@@ -104,29 +104,81 @@ const starWarsCharacters = [
 /* ESERCIZIO 1
 Crea una variabile chiamata "characters" e inserisci un array vuoto
 */
-
-const characters = vuoto[""]
+console.log("excercise 1")
+const characters = [""]
 
 /* ESERCIZIO 2
 Usando un for loop, cicla l'array "starWarsCharacters" ed accedi alla proprietà "name". 
 Usa il valore contenuto inserendolo nell'array creato precedentemente. 
 Come risultato dovresti ottenere qualcosa di simile: ["Luke Skywalker", "C-3PO", "R2-D2", etc..]
 */
+console.log("excercise 2")
+for (let i = 0; i < starWarsCharacters.length; i++) {
+  characters.push(starWarsCharacters[i].name)
+}
 
+console.log(characters)
 /* ESERCIZIO 3
   Seguendo i passaggi precedenti crea un array chiamato "femaleCharacters" e inserisci solo oggetti di personaggi femminili con questa struttura di esempio: 
   {name: Leia Organa, hair_color: "brown", eye_color: "brown"}
 */
+console.log("excercise 3")
+
+const femaleCharacters = []
+for (let i = 0; i < starWarsCharacters.length; i++) {
+  let personaggiosingolo = starWarsCharacters[i]
+
+  if (personaggiosingolo.gender === "female") {
+    delete personaggiosingolo.height
+    delete personaggiosingolo.eye_color /*ecc..*/
+
+    femaleCharacters.push(personaggiosingolo)
+  }
+}
+
+console.log(femaleCharacters)
 
 /* ESERCIZIO 4
   Crea un oggetto "eyeColor" che abbia come proprietà: blue, yellow, brown, red, blue-gray.
-  ognuna di queste proprietà contiene un array vuoto
-*/
+  ognuna di queste proprietà contiene un array vuoto*/
+
+console.log("excercise 4")
+const eyeColor = {
+  blue: [""],
+  yellow: [""],
+  brown: [""],
+  red: [""],
+  "blue-gray": [""],
+}
 
 /* ESERCIZIO 5
   Inserisci l'oggetto dei personaggi in "starWarsCharacters" nell'array corrispondente al colore dei loro occhi nell'oggetto "eyeColor" precedentemente creato.
   Utilizza uno switch statement per determinare in quale proprietà inserire il personaggio
 */
+
+console.log("excercise 5")
+
+for (let i = 0; i < starWarsCharacters.length; i++) {
+  let coloreocchi = starWarsCharacters[i].eye_color
+  switch (coloreocchi) {
+    case "blue":
+      eyeColor.blue.push(starWarsCharacters[i])
+      break
+    case "yellow":
+      eyeColor.yellow.push(starWarsCharacters[i])
+      break
+    case "blu-grey":
+      eyeColor["blue-gray"].push(starWarsCharacters[i])
+      break
+    case "brown":
+      eyeColor.brown.push(starWarsCharacters[i])
+      break
+    case "red":
+      eyeColor.red.push(starWarsCharacters[i])
+    default:
+      console.log("nessun colore")
+  }
+}
 
 /* ESERCIZIO 6
   Usa un while loop per calcolare la massa totale dell'equipaggio
