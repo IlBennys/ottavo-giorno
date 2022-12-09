@@ -130,7 +130,12 @@ for (let i = 0; i < starWarsCharacters.length; i++) {
 
   if (personaggiosingolo.gender === "female") {
     delete personaggiosingolo.height
-    delete personaggiosingolo.eye_color /*ecc..*/
+    delete personaggiosingolo.eye_color
+    delete personaggiosingolo.name
+    delete personaggiosingolo.birth_year
+    delete personaggiosingolo.hair_color
+    delete personaggiosingolo.height
+    delete personaggiosingolo.mass
 
     femaleCharacters.push(personaggiosingolo)
   }
@@ -183,7 +188,18 @@ for (let i = 0; i < starWarsCharacters.length; i++) {
 /* ESERCIZIO 6
   Usa un while loop per calcolare la massa totale dell'equipaggio
 */
+const massatot = []
 
+for (let i = 0; i < starWarsCharacters.length; i++) {
+  let masseAdded = starWarsCharacters[i].mass
+  masseAdded.push(starWarsCharacters.mass)
+}
+let i = 0
+let chtmass = 0
+while (i < masseAdded.length) {
+  chtmass = chtmass + masseAdded[i]
+  console.log(masseAdded)
+}
 /* ESERCIZIO 7
 
 Crea uno switch statement per rivelare la tipologia di carico, utilizzando la massa totale, di un'impotetica astronave contenente i personaggi dell'array "starWarsCharacters"
@@ -198,11 +214,48 @@ Se la massa è superiore a 1000 stampa in console: "DANGER! OVERLOAD ALERT: Jump
 Una volta fatto, modifica la massa di qualche elemento dell'equipaggio e vedi se riesci ad ottenere un messaggio diverso.
 */
 
+console.log("excercise 7")
+const massaastronave = 400
+
+switch (true) {
+  case massaastronave < 500:
+    console.log("Ship is under loaded")
+  case massaastronave === 500:
+    console.log("Ship is half loaded")
+    break
+  case massaastronave > 700:
+    console.log("Warning: Load is over 700")
+    break
+  case massaastronave > 900:
+    console.log("Critical Load: Over 900")
+    break
+  case massaastronave > 1000:
+    console.log("DANGER! OVERLOAD ALERT: Jump ship now!")
+    break
+  default:
+    console.log("impossibile calcolare massa")
+}
+
 /* ESERCIZIO 8
 
 Usa un for loop per cambiare il valore della proprietà "gender" di alcuni personaggi dal valore "n/a" a "robot" (Tip: puoi creare un nuovo array, o tentare la riassegnazione del valore corrispondente)
 */
+console.log("excercise 8")
 
+for (let i = 0; i < starWarsCharacters.length; i++) {
+  let oggettoInterno = starWarsCharacters[i]
+
+  switch (oggettoInterno.gender) {
+    case "n/a":
+      oggettoInterno.gender = "robot"
+      console.log("è un robot")
+      console.log(starWarsCharacters[i].name, starWarsCharacters[i].gender)
+      break
+    default:
+      console.log("non è un robot")
+  }
+}
+console.log(starWarsCharacters)
 /* EXTRA ESERCIZIO 9
 
 Utilizzando gli elementi presenti nell'array "femaleCharacters" rimuovi dall'array "characters" le stringhe corrispondenti a personaggi con lo stesso nome"
